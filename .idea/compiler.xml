@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bukkit-sample-plugin" />
+        <module name="website-plugin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bukkit-sample-plugin" target="9" />
+      <module name="website-plugin" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

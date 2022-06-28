@@ -2,14 +2,13 @@ package net.web.plugin;
 
 import java.util.HashMap;
 
-import net.web.plugin.config.file;
-import net.web.plugin.http.website.inputStream;
+import net.web.plugin.config.File;
+import net.web.plugin.http.website.InputStreamClass;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class main extends JavaPlugin {
+public class WebMain extends JavaPlugin {
     private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
 
     @Override
@@ -29,8 +28,8 @@ public class main extends JavaPlugin {
         // Register our events
 
         // Register our commands
-        inputStream.main();
-        file.main();
+        InputStreamClass.main();
+        File.main();
 
         // EXAMPLE: Custom code, here we just output some info so we can check all is well
         PluginDescriptionFile pdfFile = this.getDescription();

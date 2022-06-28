@@ -1,18 +1,17 @@
 package net.web.plugin.http.website;
 
-import net.web.plugin.main;
-
 import java.io.*;
 
-public class inputStream {
+public class InputStreamClass {
 
     public static byte[] mainHtmlFile;
+    public static byte[] customHomePage;
     public static byte[] aboutHtmlFile;
     public static byte[] mapHtmlFile;
 
     public static void main() {
 
-        InputStream is = inputStream.class.getClassLoader().getResourceAsStream("html/main.html");
+        InputStream is = InputStreamClass.class.getClassLoader().getResourceAsStream("html/main.html");
         try {
             mainHtmlFile = is.readAllBytes();
         } catch (IOException e) {
@@ -26,6 +25,17 @@ public class inputStream {
             }
             InputStream is2 = new FileInputStream(file);
             aboutHtmlFile = is2.readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            new File("config/html");
+            File file = new File("config/html/custom.html");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            InputStream is3 = new FileInputStream(file);
+            customHomePage = is3.readAllBytes();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -53,14 +63,14 @@ public class inputStream {
                 throw new RuntimeException(e);
             }
         }
-        InputStream is3 = null;
+        InputStream ism = null;
         try {
-            is3 = new FileInputStream(file);
+            ism = new FileInputStream(file);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         try {
-            mapHtmlFile = is3.readAllBytes();
+            mapHtmlFile = ism.readAllBytes();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

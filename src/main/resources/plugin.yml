@@ -1,5 +1,5 @@
 name: Website-Plugin
-main: net.web.plugin.main
+main: net.web.plugin.WebMain
 version: ${1.19}
 commands:
   pos:
